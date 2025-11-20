@@ -1,0 +1,30 @@
+@startuml
+entity USUARIOS {
+  * ID : NUMBER
+  --
+  nome : VARCHAR2(200)
+  email : VARCHAR2(200)
+  tipo : VARCHAR2(50)
+}
+
+entity PROJETOS {
+  * ID : NUMBER
+  --
+  titulo : VARCHAR2(200)
+  descricao : VARCHAR2(2000)
+  status : VARCHAR2(50)
+  data_inicio : DATE
+  usuario_id : NUMBER
+}
+
+entity RECURSOS {
+  * ID : NUMBER
+  --
+  tipo : VARCHAR2(100)
+  quantidade : NUMBER
+  projeto_id : NUMBER
+}
+
+USUARIOS ||--o{ PROJETOS : cria
+PROJETOS ||--o{ RECURSOS : possui
+@enduml

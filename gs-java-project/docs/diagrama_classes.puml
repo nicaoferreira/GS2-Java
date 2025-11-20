@@ -1,0 +1,31 @@
+@startuml
+' Diagrama de Classes - Projeto Sustentavel
+package model {
+  class Usuario {
+    - Long id
+    - String nome
+    - String email
+    - String tipo
+    + getId()
+    + getNome()
+    + getEmail()
+    + getTipo()
+  }
+
+  class Projeto {
+    - Long id
+    - String titulo
+    - String descricao
+    - String status
+    - LocalDate dataInicio
+    - Usuario responsavel
+    + getId()
+    + getTitulo()
+    + getDescricao()
+    + getStatus()
+    + getDataInicio()
+  }
+}
+
+Usuario "1" -- "0..*" Projeto : responsavel
+@enduml

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Projetos</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    <h1>Projetos</h1>
+    <a th:href="@{/projetos/novo}">Criar novo</a>
+    <table>
+      <tr><th>Título</th><th>Status</th><th>Ações</th></tr>
+      <tr th:each="p : ${projetos}">
+        <td th:text="${p.titulo}">Titulo</td>
+        <td th:text="${p.status}">Status</td>
+        <td>
+           <a th:href="@{'/projetos/' + ${p.id}}">Ver</a>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>

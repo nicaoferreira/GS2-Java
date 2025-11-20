@@ -1,0 +1,13 @@
+@startuml
+actor User
+participant "ProjetoController" as C
+participant "ProjetoService" as S
+participant "ProjetoRepository" as R
+
+User -> C: POST /api/projetos (ProjetoCreateDTO)
+C -> S: criar(dto)
+S -> R: save(projeto)
+R --> S: projetoPersistido
+S --> C: projetoCriado
+C --> User: 201 Created (projeto)
+@enduml

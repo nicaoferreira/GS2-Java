@@ -1,0 +1,8 @@
+@startuml
+package "Aplicação (Spring Boot)" {
+  [Controller] --> [Service]
+  [Service] --> [Repository]
+  [Repository] --> (Banco de Dados Oracle)
+  [Controller] --> (Thymeleaf Views)
+}
+@enduml

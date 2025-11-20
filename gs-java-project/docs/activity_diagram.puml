@@ -1,0 +1,13 @@
+@startuml
+start
+:Recebe requisição POST /api/projetos;
+:Valida DTO (@Valid);
+if (Válido?) then (sim)
+  :Converter DTO para Entity;
+  :Salvar no repositório;
+  :Retornar 201 Created;
+else (não)
+  :Retornar 400 com erros de validação;
+endif
+stop
+@enduml
