@@ -50,13 +50,13 @@ A solução segue uma arquitetura modular organizada em camadas conforme boas pr
 
 ## 🔗 Endpoints da API
 
-| Método | Endpoint | Descrição |
-|--------|----------|------------|
-| **GET** | `/projetos` | Lista todos os projetos |
-| **GET** | `/projetos/{id}` | Retorna um projeto pelo ID |
-| **POST** | `/projetos` | Cria um novo projeto |
-| **PUT** | `/projetos/{id}` | Atualiza um projeto existente |
-| **DELETE** | `/projetos/{id}` | Remove um projeto por ID |
+| Método     | Endpoint         | Descrição                     |
+|------------|------------------|-------------------------------|
+| **GET**    | `/projetos`      | Lista todos os projetos       |
+| **GET**    | `/projetos/{id}` | Retorna um projeto pelo ID    |
+| **POST**   | `/projetos`      | Cria um novo projeto          |
+| **PUT**    | `/projetos/{id}` | Atualiza um projeto existente |
+| **DELETE** | `/projetos/{id}` | Remove um projeto por ID      |
 
 ---
 
