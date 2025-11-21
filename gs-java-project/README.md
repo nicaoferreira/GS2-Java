@@ -1,6 +1,6 @@
 # 🌱 Projeto Sustentável — API RESTful em Spring Boot
 
-### Global Solution — FIAP • 2º Semestre de 2025
+### Global Solution — Domain Driven Design - FIAP • 2º Semestre de 2025
 
 ---
 

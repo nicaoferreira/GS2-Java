@@ -1,0 +1,11 @@
+br\fiap\gs\repository\ProjetoRepository.class
+br\fiap\gs\controller\ProjetoController.class
+br\fiap\gs\controller\ProjetoViewController.class
+br\fiap\gs\exception\GlobalExceptionHandler.class
+br\fiap\gs\config\DevCliRunner.class
+br\fiap\gs\Application.class
+br\fiap\gs\model\Usuario.class
+br\fiap\gs\model\Projeto.class
+br\fiap\gs\dto\ProjetoCreateDTO.class
+br\fiap\gs\service\ProjetoService.class
+com\seu\projeto\controller\FormController.class

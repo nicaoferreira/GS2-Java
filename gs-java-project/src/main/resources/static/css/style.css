@@ -1,3 +1,102 @@
-body { font-family: Arial, Helvetica, sans-serif; padding: 20px; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid #ccc; padding: 8px; }
+/* ====== Estilo geral ====== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ====== Card ====== */
+.container {
+    background: white;
+    width: 420px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Título ====== */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* ====== Labels ====== */
+label {
+    font-weight: bold;
+    color: #444;
+}
+
+/* ====== Inputs ====== */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 15px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #6a8fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(106,143,255,0.4);
+}
+
+/* ====== Botão ====== */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #6a8fff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #5878e6;
+}
+
+/* ====== Mensagens ====== */
+.success-message {
+    background: #d1ffd9;
+    padding: 12px;
+    border: 1px solid #7adf88;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #256b2f;
+    font-size: 14px;
+}
+
+.error-message {
+    background: #ffe0e0;
+    padding: 12px;
+    border: 1px solid #ff8a8a;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #7a1717;
+    font-size: 14px;
+}

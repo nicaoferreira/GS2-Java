@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Novo Projeto</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<h1>Criar Projeto</h1>
+
+<form id="formProjeto">
+    <label for="titulo">Título:</label><br>
+    <input type="text" id="titulo" name="titulo" required><br><br>
+
+    <label for="descricao">Descrição:</label><br>
+    <textarea id="descricao" name="descricao" rows="4" required></textarea><br><br>
+
+    <label for="status">Status:</label><br>
+    <select id="status" name="status" required>
+        <option value="PENDENTE">Pendente</option>
+        <option value="EM_ANDAMENTO">Em andamento</option>
+        <option value="CONCLUIDO">Concluído</option>
+    </select><br><br>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<br>
+<a href="/">Voltar</a>
+
+<script>
+    document.getElementById("formProjeto").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            titulo: document.getElementById("titulo").value,
+            descricao: document.getElementById("descricao").value,
+            status: document.getElementById("status").value
+        };
+
+        const response = await fetch("/api/projetos", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            alert("Projeto criado com sucesso!");
+            window.location.href = "/";
+        } else {
+            alert("Erro ao criar projeto.");
+        }
+    });
+</script>
+
+</body>
+</html>
