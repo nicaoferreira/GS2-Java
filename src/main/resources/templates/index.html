@@ -1,43 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Projetos Sustentáveis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #f8f9fa; }
-        .header { background-color: #28a745; color: white; padding: 20px; text-align: center; margin-bottom: 20px; }
-        .card { margin-bottom: 20px; }
-        .btn-primary { background-color: #007bff; }
-    </style>
+    <meta charset="UTF-8"/>
+    <title>Projetos</title>
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-
-<div class="header">
-    <h1>Projetos Sustentáveis</h1>
-    <p>Gerencie iniciativas de sustentabilidade</p>
-</div>
-
-<div class="container">
-    <div class="mb-3 text-end">
-        <a href="/projetos/novo" class="btn btn-success">Adicionar Novo Projeto</a>
-    </div>
-    <div class="row" th:each="projeto : ${projetos}">
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${projeto.titulo}">Título do Projeto</h5>
-                    <p class="card-text" th:text="${projeto.descricao}">Descrição do projeto...</p>
-                    <p><small th:text="${#dates.format(projeto.dataInicio, 'dd/MM/yyyy')}">Data de início</small></p>
-                    <a th:href="@{'/projetos/' + ${projeto.id}}" class="btn btn-primary">Ver Detalhes</a>
-                    <a th:href="@{'/projetos/editar/' + ${projeto.id}}" class="btn btn-warning">Editar</a>
-                    <a th:href="@{'/projetos/deletar/' + ${projeto.id}}" class="btn btn-danger">Deletar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <h1>Projetos</h1>
+    <a th:href="@{/projetos/novo}">Criar novo</a>
+    <table>
+      <tr><th>Título</th><th>Status</th><th>Ações</th></tr>
+      <tr th:each="p : ${projetos}">
+        <td th:text="${p.titulo}">Titulo</td>
+        <td th:text="${p.status}">Status</td>
+        <td>
+           <a th:href="@{'/projetos/' + ${p.id}}">Ver</a>
+        </td>
+      </tr>
+    </table>
 </body>
 </html>

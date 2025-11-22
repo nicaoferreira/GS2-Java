@@ -1,41 +1,42 @@
 package br.fiap.gs.controller;
 
+import br.fiap.gs.dto.ProjetoCreateDTO;
 import br.fiap.gs.model.Projeto;
-import br.fiap.gs.repository.ProjetoRepository;
+import br.fiap.gs.service.ProjetoService;
 import jakarta.validation.Valid;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/api/projetos")
 public class ProjetoController {
+    private final ProjetoService service;
+    public ProjetoController(ProjetoService service) { this.service = service; }
 
-    private final ProjetoRepository projetoRepository;
-
-    public ProjetoController(ProjetoRepository projetoRepository) {
-        this.projetoRepository = projetoRepository;
+    @GetMapping
+    public ResponseEntity<?> listar() {
+        return ResponseEntity.ok(service.listarTodos());
     }
 
-
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("projetos", projetoRepository.findAll());
-        return "index";
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscar(@PathVariable Long id) {
+        return ResponseEntity.ok(service.buscarPorId(id));
     }
 
-
-    @GetMapping("/form")
-    public String showForm(Projeto projeto) {
-        return "form";
+    @PostMapping
+    public ResponseEntity<?> criar(@Valid @RequestBody ProjetoCreateDTO dto) {
+        Projeto criado = service.criar(dto);
+        return ResponseEntity.status(201).body(criado);
     }
 
-    @PostMapping("/form")
-    public String submitForm(@Valid Projeto projeto, BindingResult result) {
-        if (result.hasErrors()) {
-            return "form";
-        }
-        projetoRepository.save(projeto);
-        return "redirect:/";
+    @PutMapping("/{id}")
+    public ResponseEntity<?> atualizar(@PathVariable Long id, @Valid @RequestBody ProjetoCreateDTO dto) {
+        return ResponseEntity.ok(service.atualizar(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletar(@PathVariable Long id) {
+        service.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }
